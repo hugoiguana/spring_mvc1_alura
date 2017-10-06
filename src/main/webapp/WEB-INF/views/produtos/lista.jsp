@@ -9,6 +9,11 @@
 	Casa do código</title>
 </head>
 <body>
+
+	<h1>Lista de produtos</h1>
+
+	<h3>${sucesso }</h3>
+
 	<table>
 		<tr>
 			<td>Título</td>
