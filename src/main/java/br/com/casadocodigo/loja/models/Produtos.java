@@ -29,6 +29,16 @@ public class Produtos {
 
 	@ElementCollection
 	private List<Preco> precos;
+	
+	private String sumarioPath;
+
+	public String getSumarioPath() {
+		return sumarioPath;
+	}
+
+	public void setSumarioPath(String sumarioPath) {
+		this.sumarioPath = sumarioPath;
+	}
 
 	public int getId() {
 		return id;
