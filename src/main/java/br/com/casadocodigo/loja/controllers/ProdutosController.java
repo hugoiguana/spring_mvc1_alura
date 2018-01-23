@@ -64,7 +64,7 @@ public class ProdutosController {
 		return new ModelAndView("redirect:produtos");
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping("listar")
 	public ModelAndView listar() {
 
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");
@@ -72,7 +72,7 @@ public class ProdutosController {
 
 		return modelAndView;
 	}
-
+	
 	@RequestMapping("/detalhe/{id}")
 	public ModelAndView detalhe(@PathVariable("id") Integer id){
 	    ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
