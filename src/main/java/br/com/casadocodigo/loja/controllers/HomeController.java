@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-	@RequestMapping(name="/")
-	public String index() {
-		
-		System.out.println("Exibindo a home da CDC");
-		
-		return "home";
-	}
+//	@RequestMapping(name="/")
+//	public String index() {
+//		
+//		System.out.println("Exibindo a home da CDC");
+//		
+//		return "home";
+//	}
 
 }
