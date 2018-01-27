@@ -15,6 +15,9 @@
 </head>
 <body>
 
+
+<img src="<c:url value="/resources/imagens/caelum.png"/>" />
+
 	<form:form action="${s:mvcUrl('PC#gravar').build() }" method="post" commandName="produtos" enctype="multipart/form-data">
 		<div>
 			<label>Título</label> 
