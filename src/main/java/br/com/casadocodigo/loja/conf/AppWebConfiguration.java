@@ -24,8 +24,8 @@ import br.com.casadocodigo.loja.infra.FileSaver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class })
-//public class AppWebConfiguration extends WebMvcConfigurerAdapter {
-public class AppWebConfiguration {
+public class AppWebConfiguration extends WebMvcConfigurerAdapter {
+//public class AppWebConfiguration {
 
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolve() {
@@ -68,12 +68,12 @@ public class AppWebConfiguration {
 //		configurer.enable();
 //	}
 
-//	@Override
-//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //		 registry.addResourceHandler("/css/**").addResourceLocations("/css/");
 //		 registry.addResourceHandler("/imagens/*").addResourceLocations("/imagens/");
 //		 registry.addResourceHandler("/js/**").addResourceLocations("/js/");
-//		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-//	}
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 
 }

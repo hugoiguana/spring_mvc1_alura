@@ -29,7 +29,7 @@
 </head>
 <body class="produto">
 
-<img src="<c:url value="/resources/imagens/caelum.png"/>"  />
+<%-- <img src="<c:url value="/resources/imagens/caelum.png"/>"  /> --%>
 
   <header id="layout-header">
 		<div class="clearfix container">
