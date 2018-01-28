@@ -61,10 +61,10 @@ public class ProdutosController {
 
 		redirectAtrib.addFlashAttribute("sucesso", "Produto " + produto.getDescricao() + " cadastrado com sucesso!");
 
-		return new ModelAndView("redirect:produtos");
+		return new ModelAndView("redirect:produtos/listar");
 	}
-
-	@RequestMapping("listar")
+	
+	@RequestMapping("/listar")
 	public ModelAndView listar() {
 
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");

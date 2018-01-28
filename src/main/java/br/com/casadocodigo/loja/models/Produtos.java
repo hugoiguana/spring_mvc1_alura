@@ -24,12 +24,12 @@ public class Produtos {
 
 	private int paginas;
 
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataLancamento;
 
 	@ElementCollection
 	private List<Preco> precos;
-	
+
 	private String sumarioPath;
 
 	public String getSumarioPath() {
@@ -86,6 +86,28 @@ public class Produtos {
 
 	public void setPrecos(List<Preco> precos) {
 		this.precos = precos;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produtos other = (Produtos) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
 }

@@ -20,19 +20,30 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import br.com.casadocodigo.loja.controllers.HomeController;
 import br.com.casadocodigo.loja.dao.ProdutoDAO;
 import br.com.casadocodigo.loja.infra.FileSaver;
+import br.com.casadocodigo.loja.models.CarrinhoCompras;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class })
+@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class, CarrinhoCompras.class })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
-//public class AppWebConfiguration {
+	// public class AppWebConfiguration {
 
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolve() {
-		InternalResourceViewResolver resolve = new InternalResourceViewResolver();
-		resolve.setPrefix("/WEB-INF/views/");
-		resolve.setSuffix(".jsp");
-		return resolve;
+
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+
+		// Possibilita que o Bean/Objeto CarrinhoCompras possa ser visualizado
+		// nas Views.
+		resolver.setExposedContextBeanNames("carrinhoCompras");
+
+		// Possibilita que todos os Beans possam ser visualizados nas Views
+		// resolver.setExposeContextBeansAsAttributes(true);
+
+		return resolver;
 	}
 
 	@Bean
@@ -63,16 +74,18 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		return new StandardServletMultipartResolver();
 	}
 
-//	@Override
-//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//		configurer.enable();
-//	}
+	// @Override
+	// public void
+	// configureDefaultServletHandling(DefaultServletHandlerConfigurer
+	// configurer) {
+	// configurer.enable();
+	// }
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//		 registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-//		 registry.addResourceHandler("/imagens/*").addResourceLocations("/imagens/");
-//		 registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+		// registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+		// registry.addResourceHandler("/imagens/*").addResourceLocations("/imagens/");
+		// registry.addResourceHandler("/js/**").addResourceLocations("/js/");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
