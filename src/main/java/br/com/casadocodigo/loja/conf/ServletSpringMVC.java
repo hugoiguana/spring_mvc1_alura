@@ -14,7 +14,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return null;
 	}
 
-	/*
+	/**
 	 * Informa ao SpringMVC que as classes "AppWebConfiguration" e "JPAConfiguration" seram usadas como classes de configuração do servlet do SpringMVC.
 	 * 
 	 */
@@ -23,9 +23,8 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return new Class[] { AppWebConfiguration.class, JPAConfiguration.class };
 	}
 
-	/*
+	/**
 	 * Permite que o SpringMVC atenda as requisições a partir da raiz do nosso projeto (/)
-	 * 
 	 */
 	@Override
 	protected String[] getServletMappings() {
@@ -33,6 +32,9 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	}
 	
 
+	/**
+	 * Possibilita a criação de filtros. Nesse caso estamos usando um filtro para configurar o encoding dás páginas/VIEWS.
+	 */
 	@Override
 	protected Filter[] getServletFilters() {
 
