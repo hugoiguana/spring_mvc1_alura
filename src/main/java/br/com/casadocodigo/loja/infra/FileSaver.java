@@ -9,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 
+ * Classe responsável por realizar a escrita/salvamento de arquivos no servidor.
+ *
+ */
 @Component
 public class FileSaver {
 
