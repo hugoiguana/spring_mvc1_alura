@@ -46,7 +46,7 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	@CacheEvict(value="produtosHome", allEntries=true)
+	@CacheEvict(value = "produtosHome", allEntries = true)
 	public ModelAndView gravar(MultipartFile sumario, @Valid Produtos produto, BindingResult result,
 			RedirectAttributes redirectAtrib) {
 
@@ -65,8 +65,13 @@ public class ProdutosController {
 
 		return new ModelAndView("redirect:produtos/listar");
 	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView listarGet() {
+		return listar();
+	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value = "listar", method = RequestMethod.GET)
 	public ModelAndView listar() {
 
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");
@@ -76,10 +81,17 @@ public class ProdutosController {
 	}
 	
 	@RequestMapping("/detalhe/{id}")
-	public ModelAndView detalhe(@PathVariable("id") Integer id){
-	    ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
-	    Produtos produto = produtoDao.find(id);
-	    modelAndView.addObject("produto", produto);
-	    return modelAndView;
+	public ModelAndView detalhe(@PathVariable("id") Integer id) {
+		ModelAndView modelAndView = new ModelAndView("/produtos/detalhe");
+		Produtos produto = produtoDao.find(id);
+		modelAndView.addObject("produto", produto);
+		return modelAndView;
 	}
+	
+//	@RequestMapping("/{id}")
+//	@ResponseBody
+//	public Produtos detalheJSON(@PathVariable("id") Integer id){
+//	    return produtoDao.find(id);
+//	}
+
 }
