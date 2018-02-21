@@ -15,6 +15,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JPAConfiguration {
 
+	/**
+	 * Bean responsável por configurar as configurações do banco de dados. 
+	 * 
+	 */
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
@@ -42,6 +46,10 @@ public class JPAConfiguration {
 		return factoryBean;
 	}
 
+	/**
+	 * Bean responsável por habilitar o gerenciamento automático de transações do JPA. 
+	 * 
+	 */
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
 		return new JpaTransactionManager(emf);

@@ -41,6 +41,11 @@ import br.com.casadocodigo.loja.models.CarrinhoCompras;
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	// public class AppWebConfiguration {
 
+	
+	/**
+	 * 
+	 * Bean responsável por realizar o mapeamento das VIEWS.
+	 */
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
 
@@ -49,16 +54,23 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
 
-		// Possibilita que o Bean/Objeto CarrinhoCompras possa ser visualizado
-		// nas Views/JSP.
+		/*
+		 * Possibilita que o Bean/Objeto CarrinhoCompras possa ser visualizado nas Views/JSP.
+		 */
 		resolver.setExposedContextBeanNames("carrinhoCompras");
 
-		// Possibilita que todos os Beans possam ser visualizados nas Views
+		/*
+		 * Possibilita que todos os Beans possam ser visualizados nas Views
+		 */
 		// resolver.setExposeContextBeansAsAttributes(true);
 
 		return resolver;
 	}
 
+	/**
+	 * Bean responsável por realizar o mapeamento do arquivo que contem as traduções(message.properties). 
+	 * 
+	 */
 	@Bean
 	public MessageSource messageSource() {
 
@@ -71,6 +83,10 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		return messageSource;
 	}
 
+	/**
+	 * Bean responsável por configurar a formatação default de data. 
+	 * 
+	 */
 	@Bean
 	public FormattingConversionService mvcConversionService() {
 

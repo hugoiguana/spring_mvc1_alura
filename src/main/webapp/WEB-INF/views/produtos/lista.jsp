@@ -29,8 +29,8 @@
 			<tr>
 				<td><a href="${s:mvcUrl('PC#detalhe').arg(0, produto.id).build()}">${produto.titulo}</a></td>
 				<td>${produto.titulo}</td>
-				<td>${produto.descricao }</td>
-				<td>${produto.paginas }</td>
+				<td>${produto.descricao}</td>
+				<td>${produto.paginas}</td>
 			</tr>
 		</c:forEach>
 
