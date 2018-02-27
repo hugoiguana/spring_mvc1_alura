@@ -3,6 +3,7 @@
 	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 <!DOCTYPE html>
 <html>
@@ -33,6 +34,15 @@
 	        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
 	        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
 	    </ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<%--<a href="#"><security:authentication property="principal.username"/></a>--%> 
+		 		<a href="#">
+        		<security:authentication property="principal" var="usuario"/>
+        		Usuário: ${usuario.username}
+    			</a>
+    		</li>
+		</ul>	    
 	    </div><!-- /.navbar-collapse -->
 	  </div>
 	</nav>
