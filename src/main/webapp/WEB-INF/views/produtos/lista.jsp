@@ -63,7 +63,7 @@
 	
 			<c:forEach items="${produtos }" var="produto">
 				<tr>
-					<td><a href="detalhe/${produto.id}">${produto.titulo}</a></td>
+					<td><a href="<c:url value="/produtos/detalhe" />/${produto.id}">${produto.titulo}</a></td>
 					<td>${produto.descricao}</td>
 					<td>${produto.paginas}</td>
 				</tr>
