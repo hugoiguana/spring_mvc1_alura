@@ -71,7 +71,7 @@ public class ProdutosController {
 		return listar();
 	}
 	
-	@RequestMapping(value = "listar", method = RequestMethod.GET)
+	@RequestMapping(value = "listar", method = RequestMethod.GET, name = "produtosListar")
 	public ModelAndView listar() {
 
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");

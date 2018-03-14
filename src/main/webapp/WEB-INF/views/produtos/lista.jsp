@@ -27,12 +27,12 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="${s:mvcUrl('HC#index').build()}">Casa do Código</a>
+	      <a class="navbar-brand" href="<c:url value="/" />">Casa do Código</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
-	        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
+	        <li><a href="<c:url value="/produtos/listar" />">Lista de Produtos</a></li>
+	        <li><a href="<c:url value="/produtos/form" />">Cadastro de Produtos</a></li>
 	    </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li>
@@ -63,7 +63,7 @@
 	
 			<c:forEach items="${produtos }" var="produto">
 				<tr>
-					<td><a href="${s:mvcUrl('PC#detalhe').arg(0, produto.id).build()}">${produto.titulo}</a></td>
+					<td><a href="detalhe/${produto.id}">${produto.titulo}</a></td>
 					<td>${produto.descricao}</td>
 					<td>${produto.paginas}</td>
 				</tr>

@@ -12,6 +12,8 @@
 <meta charset="UTF-8">
 <title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais - Casa do Código</title>
 
+
+
 <c:url value="/resources/css" var="cssPath" />
 <link rel="stylesheet" href="${cssPath}/bootstrap.min.css" />
 <link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" />
@@ -34,12 +36,12 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="${s:mvcUrl('HC#index').build()}">Casa do Código</a>
+	      <a class="navbar-brand" href="<c:url value="/" />">Casa do Código</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
-	        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
+	        <li><a href="<c:url value="/produtos/listar" />">Lista de Produtos</a></li>
+	        <li><a href="<c:url value="/produtos/form" />">Cadastro de Produtos</a></li>
 	    </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div>
@@ -48,8 +50,9 @@
 	<div class="container">
 	
 		<img src="<c:url value="/resources/imagens/caelum.png"/>" />
+			<c:url value="/produtos" var="produtosGravar"/>
 
-		<form:form action="${s:mvcUrl('PC#gravar').build() }" method="post" commandName="produtos" enctype="multipart/form-data">
+		<form:form action="${produtosGravar}" method="post" commandName="produtos" enctype="multipart/form-data">
 			<div class="form-group">
 				<label>Título</label> 
 				<form:input path="titulo" cssClass="form-control" />
