@@ -6,6 +6,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -39,7 +40,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 
 	/**
 	 * Possibilita a criação de filtros. Nesse caso estamos usando um filtro
-	 * para configurar o encoding dás páginas/VIEWS.
+	 * para configurar o encoding das páginas/VIEWS.
 	 */
 	@Override
 	protected Filter[] getServletFilters() {
@@ -47,7 +48,7 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
 		encodingFilter.setEncoding("UTF-8");
 
-		return new Filter[] { encodingFilter };
+		return new Filter[] { encodingFilter,  new OpenEntityManagerInViewFilter() };
 	}
 
 	@Override
