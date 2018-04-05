@@ -38,7 +38,7 @@ public class JPAConfiguration {
 	 * 
 	 */
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties additionalProperties) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -46,14 +46,14 @@ public class JPAConfiguration {
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
 		factoryBean.setDataSource(dataSource);
 
-		Properties props = aditionalProperties();
-
-		factoryBean.setJpaProperties(props);
+		factoryBean.setJpaProperties(additionalProperties);
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
 
 		return factoryBean;
 	}
 	
+	@Bean
+	@Profile("dev")
 	private Properties aditionalProperties(){
 	    Properties props = new Properties();
 	    props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
@@ -61,6 +61,7 @@ public class JPAConfiguration {
 	    props.setProperty("hibernate.hbm2ddl.auto", "update");
 	    return props;
 	}
+	
 	
 
 	/**

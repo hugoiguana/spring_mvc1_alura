@@ -7,6 +7,36 @@
   <packaging>war</packaging>
   <build>
     <finalName>spring_mvc1_alura</finalName>
+	<plugins>
+	    <plugin>
+		    <artifactId>maven-war-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+				<failOnMissingWebXml>false</failOnMissingWebXml>
+			</configuration>	    
+	    </plugin>
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-dependency-plugin</artifactId>
+	        <version>2.3</version>
+	        <executions>
+	            <execution>
+	                <phase>package</phase>
+	                <goals><goal>copy</goal></goals>
+	                <configuration>
+	                    <artifactItems>
+	                        <artifactItem>
+	                            <groupId>com.github.jsimone</groupId>
+	                            <artifactId>webapp-runner</artifactId>
+	                            <version>8.0.30.1</version>
+	                            <destFileName>webapp-runner.jar</destFileName>
+	                        </artifactItem>
+	                    </artifactItems>
+	                </configuration>
+	            </execution>
+	        </executions>
+	    </plugin>
+	</plugins>	
   </build>
 	  <properties>
 	    <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -107,6 +137,11 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.1.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.15</version>
+		</dependency>		
 		
 		
 		<dependency>
